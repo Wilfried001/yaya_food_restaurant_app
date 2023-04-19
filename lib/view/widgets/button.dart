@@ -30,9 +30,10 @@ class CButton extends StatelessWidget {
       child: Text(
         title,
         style: TextStyle(
-            fontSize: sizeTitle,
-            // titleColor ?? Config.colors.secondaryColor
-            color: titleColor ?? Config.colors.secondaryColor),
+          fontSize: sizeTitle,
+          // titleColor ?? Config.colors.secondaryColor
+          color: titleColor ?? Config.colors.secondaryColor,
+        ),
       ),
       style: ButtonStyle(
         fixedSize: MaterialStateProperty.all(Size(width, height)),

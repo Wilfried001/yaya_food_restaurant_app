@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:restaurant_app_yaya_food/config/config.dart';
 import 'package:restaurant_app_yaya_food/config/function.dart';
+import 'package:restaurant_app_yaya_food/view/screens/bars/bar-page.dart';
 import 'package:restaurant_app_yaya_food/view/screens/commands/commande-liste-page.dart';
 import 'package:restaurant_app_yaya_food/view/screens/home/home-page.dart';
 import 'package:restaurant_app_yaya_food/view/screens/profils/profil-user-page.dart';
-
-import 'view/screens/commands/history-commande.dart';
+import 'view/screens/foods/addFood/add-food-page.dart';
 
 class RootApp extends StatefulWidget {
   const RootApp({super.key});
@@ -30,7 +31,7 @@ class _RootAppState extends State<RootApp> {
       children: [
         HomePage(),
         ListCommandePage(),
-        HistoryCommande(),
+        BarListAll(),
         ProfilUser(),
       ],
     );
@@ -40,7 +41,7 @@ class _RootAppState extends State<RootApp> {
     List items = [
       Icons.home_filled,
       Icons.shopping_basket_rounded,
-      Icons.format_list_numbered,
+      Config.asset.bar,
       Icons.person_rounded,
     ];
     return Stack(
@@ -80,11 +81,18 @@ class _RootAppState extends State<RootApp> {
                               ? Config.colors.secondaryColor
                               : Config.colors.textColor,
                         ),
-                        child: Icon(
-                          items[index],
-                          size: 20,
-                          color: Config.colors.whithColor,
-                        ),
+                        child: index != 2
+                            ? Icon(
+                                items[index],
+                                size: 20,
+                                color: Config.colors.whithColor,
+                              )
+                            : SvgPicture.asset(
+                                height: 10, width: 10,
+                                Config.asset.bar,
+                                // ignore: deprecated_member_use
+                                color: Config.colors.whithColor,
+                              ),
                       ),
                     ),
                   );
@@ -95,18 +103,23 @@ class _RootAppState extends State<RootApp> {
         ),
         Positioned(
           top: 5,
-          right: width(context) * 0.4,
-          child: Container(
-            width: 65,
-            height: 65,
-            decoration: BoxDecoration(
-              color: Config.colors.secondaryColor,
-              borderRadius: BorderRadius.circular(50),
-            ),
-            child: Icon(
-              Icons.add,
-              size: 40,
-              color: Config.colors.whithColor,
+          right: width(context) * 0.42,
+          child: InkWell(
+            onTap: () {
+              route(context, AddFoodPage());
+            },
+            child: Container(
+              width: 65,
+              height: 65,
+              decoration: BoxDecoration(
+                color: Config.colors.secondaryColor,
+                borderRadius: BorderRadius.circular(50),
+              ),
+              child: Icon(
+                Icons.add,
+                size: 40,
+                color: Config.colors.whithColor,
+              ),
             ),
           ),
         ),

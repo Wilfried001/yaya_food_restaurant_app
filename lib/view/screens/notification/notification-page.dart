@@ -9,7 +9,7 @@ class NotificationsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Container(),
+        iconTheme: IconThemeData(color: Config.colors.primaryColor),
         centerTitle: true,
         title: Text(
           "Notifications",
@@ -37,10 +37,17 @@ class NotificationsPage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            const NotificationItem(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              NotificationItem(),
+              NotificationItem(),
+              NotificationItem(),
+              NotificationItem(),
+              NotificationItem(),
+              NotificationItem(),
+            ],
+          ),
         ),
       ),
     );

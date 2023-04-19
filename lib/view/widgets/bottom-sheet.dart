@@ -10,20 +10,39 @@ class CbottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 400,
+      height: 300,
       width: width(context),
-      decoration: BoxDecoration(color: Config.colors.whithColor),
+      decoration: BoxDecoration(
+          color: Config.colors.whithColor,
+          borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
       child: Padding(
-        padding: const EdgeInsets.only(top: 30.0, right: 15, left: 15),
+        padding:
+            const EdgeInsets.only(top: 10.0, right: 15, left: 15, bottom: 15),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    Get.back();
+                  },
+                  icon: Icon(
+                    Icons.close,
+                    size: 35,
+                    color: Config.colors.primaryColor,
+                  ),
+                ),
+              ],
+            ),
             Row(
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    height: 80,
-                    width: 80,
+                    height: 100,
+                    width: 100,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       image: DecorationImage(
@@ -32,6 +51,9 @@ class CbottomSheet extends StatelessWidget {
                       ),
                     ),
                   ),
+                ),
+                SizedBox(
+                  width: 20,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -42,7 +64,7 @@ class CbottomSheet extends StatelessWidget {
                       child: Text(
                         "Légumes grillés☀️",
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 18,
                           fontWeight: FontWeight.bold,
                           color: Config.colors.primaryColor,
                         ),
@@ -51,7 +73,7 @@ class CbottomSheet extends StatelessWidget {
                     Text(
                       "Nom du Bar",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Config.colors.primaryColor,
                       ),
@@ -70,16 +92,24 @@ class CbottomSheet extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(
+              width: 20,
+            ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CButton(
+                  sideWidth: 3,
+                  color: Config.colors.whithColor,
+                  sideColor: Config.colors.primaryColor,
                   width: 160,
-                  title: "Accepter",
+                  titleColor: Config.colors.primaryColor,
+                  title: "Refuser",
                   onPressed: () {},
                 ),
                 CButton(
                   width: 160,
-                  title: "Refuser",
+                  title: "Accepter",
                   onPressed: () {},
                 ),
               ],

@@ -24,6 +24,12 @@ class _Asset {
   final backgrougImage = "assets/images/background.jpg";
   final cesar = "assets/images/cesar.png";
   final image = "assets/images/image.png";
+  final bar = "assets/images/svg/bar.svg";
+  final assiette = "assets/images/svg/assiette.svg";
+  final burger = "assets/images/svg/burger.svg";
+  final fastFood = "assets/images/svg/fast-food_1.svg";
+  final pizza = "assets/images/svg/pizza.svg";
+  final pokawa = "assets/images/pokawa.png";
 }
 
 class RadioTitleListeItem {
